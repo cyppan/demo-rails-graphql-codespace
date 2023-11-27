@@ -5,17 +5,16 @@ services:
 
   db:
     image: "postgres:16-alpine"
-
+    command: postgres -c listen_addresses='*'
     ports:
       - 5432:5432
-
     environment:
       - POSTGRES_USER=rails
       - POSTGRES_PASSWORD=rails
       - POSTGRES_DB=rails
-
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
+    healthcheck:
+      test:
+        ["CMD", "pg_isready", "--username", "rails", "--dbname", "rails"]
+      interval: 3s
+      timeout: 2s
+      retries: 5
