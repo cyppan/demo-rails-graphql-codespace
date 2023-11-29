@@ -1,3 +1,4 @@
+import ReactStars from 'react-stars'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -8,6 +9,7 @@ const GET_POSTS = gql`
   posts {
     id
     title
+    rating
   }
 }
 `;
@@ -21,7 +23,6 @@ type Post = {
 function App() {
     const {loading, error, data} = useQuery<{ posts: Post[] }>(GET_POSTS);
     console.log({data})
-    // const data = [{title: "post 1"}]
 
     if (loading) return <p>Loading...</p>;
 
@@ -38,7 +39,12 @@ function App() {
                 </a>
             </div>
             <div className="card">
-                {data?.posts.map((post) => <h2><li><a href={'#'}>{post.title}</a></li></h2>)}
+                {data?.posts.map((post) => 
+                    <h2>
+                        <li style={{display: 'flex', alignItems: 'center', gap: 8}}>
+                            <a href={'#'}>{post.title}</a> <ReactStars count={5} value={post.rating} color2={'#ffd700'} />
+                        </li>
+                    </h2>)}
             </div>
         </>
     )
