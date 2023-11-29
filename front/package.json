@@ -13,11 +13,13 @@
     "@apollo/client": "^3.8.7",
     "graphql": "^16.8.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-stars": "^2.2.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
+    "@types/react-stars": "^2.2.4",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
     "@vitejs/plugin-react": "^4.2.0",
