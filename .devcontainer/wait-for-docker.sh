@@ -6,4 +6,4 @@ do
 done
 
 # additional wait, previous check is not enough
-sleep 5
+sleep 20
